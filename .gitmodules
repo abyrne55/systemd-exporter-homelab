@@ -1,0 +1,3 @@
+[submodule "systemd_exporter"]
+	path = systemd_exporter
+	url = https://github.com/prometheus-community/systemd_exporter.git
