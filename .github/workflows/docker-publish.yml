@@ -42,11 +42,6 @@ jobs:
         with:
           cosign-release: 'v2.6.2'
 
-      # Set up QEMU for multi-arch builds
-      # https://github.com/docker/setup-qemu-action
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4.0.0
-
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
       # https://github.com/docker/setup-buildx-action

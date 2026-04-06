@@ -1,10 +1,11 @@
-# Build stage
-FROM quay.io/hummingbird/go:1.26-builder AS builder
+# Build stage — always run on the runner's native arch
+FROM --platform=$BUILDPLATFORM quay.io/hummingbird/go:1.26-builder AS builder
+ARG TARGETARCH
 
 WORKDIR /build
 COPY systemd_exporter/ .
 
-RUN CGO_ENABLED=0 go build \
+RUN CGO_ENABLED=0 GOARCH=$TARGETARCH go build \
     -ldflags "-s -w \
         -X github.com/prometheus/common/version.Version=$(cat VERSION) \
         -X github.com/prometheus/common/version.Revision=unknown \
