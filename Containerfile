@@ -1,5 +1,5 @@
 # Build stage — always run on the runner's native arch
-FROM --platform=$BUILDPLATFORM quay.io/hummingbird/go:1.26-builder AS builder
+FROM --platform=$BUILDPLATFORM quay.io/hummingbird/go:1.27-builder AS builder
 ARG TARGETARCH
 
 WORKDIR /build
